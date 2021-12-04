@@ -1,6 +1,5 @@
 import { useEffect } from "react"
 import { useWeather } from "./context/WeatherContext"
-import timeConverter from "./DailyForecast/timeConverter"
 
 const Time = () => {
 	const { time, setTime, zone } = useWeather()
