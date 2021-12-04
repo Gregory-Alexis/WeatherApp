@@ -6,7 +6,7 @@ import DailyForecast from "./components/DailyForecast/DailyForecast"
 function App() {
 	return (
 		<WeatherContextProvider>
-			<div className="min-h-screen" style={{ background: "#253A4F" }}>
+			<div className="min-h-screen bg-gray-800">
 				<CityForm />
 				<Weather />
 				<h2 className="pt-3 text-white pl-5 sm:text-lg md:text-2xl">

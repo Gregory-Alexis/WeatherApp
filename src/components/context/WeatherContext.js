@@ -16,10 +16,12 @@ export const WeatherContextProvider = ({ children }) => {
 		wind,
 		visibility,
 	} = conditions
+
 	const [description, setDiscription] = useState("")
 	const [iconID, setIconID] = useState("")
 	const [location, setLocation] = useState("")
 	const [time, setTime] = useState(new Date())
+	const [zone, setZone] = useState("")
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -27,6 +29,7 @@ export const WeatherContextProvider = ({ children }) => {
 				const result = await axios.get(
 					`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${process.env.REACT_APP_WEATHER_API}&lang=fr`
 				)
+
 				setConditions({
 					mainTemp: Math.round(result.data.main.temp),
 					feelslike: Math.round(result.data.main.feels_like),
@@ -41,12 +44,15 @@ export const WeatherContextProvider = ({ children }) => {
 				setDiscription(result.data.weather[0].description)
 				setIconID(result.data.weather[0].icon)
 				setLocation(`${result.data.name}, ${result.data.sys.country}`)
+				setZone(result.data.timezone)
+				console.log(result.data.timezone)
 			} catch (error) {
 				alert(error.message)
 			}
 		}
 		fetchData()
 	}, [city])
+
 	return (
 		<WeatherContext.Provider
 			value={{
@@ -65,6 +71,7 @@ export const WeatherContextProvider = ({ children }) => {
 				city,
 				time,
 				setTime,
+				zone,
 			}}
 		>
 			{children}

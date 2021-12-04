@@ -41,6 +41,10 @@ const Weather = () => {
 		case "13n":
 			background = "bg-snow"
 			break
+		case "50d":
+		case "50n":
+			background = "bg-haze"
+			break
 		default:
 	}
 
