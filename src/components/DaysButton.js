@@ -11,7 +11,7 @@ const PrevisionsButton = () => {
 	return (
 		<button
 			type="button"
-			className="text-white bg-gray-600 py-2 px-4 rounded-xl mx-3 my-1"
+			className="text-white py-2 px-4 rounded-xl ml-4 mb-2 bg-primary hover:bg-black transition duration-300"
 			onClick={PrevisionsHandler}
 		>
 			Afficher les prochaines 24h

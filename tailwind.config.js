@@ -21,7 +21,11 @@ module.exports = {
 				haze: "url('https://res.cloudinary.com/dew6sgune/image/upload/v1638629574/Hazy_Night_gwhkil.png')",
 			},
 			colors: {
+				primary: "#3F576E",
 				secondary: "#BDBDBD",
+			},
+			backgroundColors: {
+				primary: "#3F576E",
 			},
 		},
 	},
