@@ -22,6 +22,7 @@ export const WeatherContextProvider = ({ children }) => {
 	const [location, setLocation] = useState("")
 	const [time, setTime] = useState(new Date())
 	const [zone, setZone] = useState("")
+	const [previsions, setPrevisions] = useState(8)
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -72,6 +73,8 @@ export const WeatherContextProvider = ({ children }) => {
 				time,
 				setTime,
 				zone,
+				previsions,
+				setPrevisions,
 			}}
 		>
 			{children}
