@@ -2,10 +2,11 @@ import Icon from "./Icon"
 import Location from "./Location"
 import Time from "./Time"
 import Description from "./Description"
-import { useWeather } from "../components/context/WeatherContext"
+import { useWeather } from "./context/WeatherContext"
 
-const Weather = () => {
+const WeatherApp = () => {
 	const { iconID } = useWeather()
+
 	let background = ""
 
 	switch (iconID) {
@@ -45,7 +46,7 @@ const Weather = () => {
 		case "50n":
 			background = "bg-haze"
 			break
-		default:
+		default: // ne fais rien
 	}
 
 	return (
@@ -65,4 +66,4 @@ const Weather = () => {
 	)
 }
 
-export default Weather
+export default WeatherApp

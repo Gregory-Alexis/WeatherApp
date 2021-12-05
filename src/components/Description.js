@@ -26,10 +26,8 @@ const Description = () => {
 			</div>
 			<p className="text-lg text-white pt-10 sm:text-xl md:text-3xl">
 				{time.getHours() >= "0" && time.getHours() <= "20"
-					? `Aujourd'hui, la température maximal atteindra ${Math.ceil(
-							maxTemp
-					  )}`
-					: `Ce soir, la température minimal atteindra ${Math.floor(minTemp)}`}
+					? `Aujourd'hui, la température sera de ${Math.ceil(maxTemp)}`
+					: `Ce soir, la température minimal sera de ${Math.floor(minTemp)}`}
 				&deg;C
 			</p>
 			<div className="flex justify-between xl:justify-evenly text-gray-400 pt-6 text-sm sm:text-base md:text-xl">
@@ -45,7 +43,9 @@ const Description = () => {
 				</p>
 				<p>
 					VISIBILITÉ
-					<span className="flex text-white">{visibility / 1000} km</span>
+					<span className="flex text-white">
+						{Math.round(visibility / 1000)} km
+					</span>
 				</p>
 				<p>
 					PRESSION<span className="flex text-white"> {pressure} hPa</span>
