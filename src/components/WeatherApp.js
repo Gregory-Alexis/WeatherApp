@@ -2,10 +2,10 @@ import Icon from "./Icon"
 import Location from "./Location"
 import Time from "./Time"
 import Description from "./Description"
-import { useWeather } from "./context/WeatherContext"
+import { useDaily } from "./context/DailyContext"
 
 const WeatherApp = () => {
-	const { iconID } = useWeather()
+	const { iconID } = useDaily()
 
 	let background = ""
 

@@ -1,8 +1,8 @@
 import React from "react"
-import { useWeather } from "./context/WeatherContext"
+import { useDaily } from "./context/DailyContext"
 
 const PrevisionsButton = () => {
-	const { setPrevisions, previsions } = useWeather()
+	const { setPrevisions, previsions } = useDaily()
 
 	const PrevisionsHandler = () => {
 		setPrevisions(previsions + 8)

@@ -1,8 +1,8 @@
 import React from "react"
-import { useWeather } from "../components/context/WeatherContext"
+import { useDaily } from "./context/DailyContext"
 
 const CityForm = () => {
-	const { setCity } = useWeather()
+	const { setCity } = useDaily()
 	const cityHandler = (event) => {
 		event.preventDefault()
 		setCity(event.target.city.value)
@@ -14,15 +14,13 @@ const CityForm = () => {
 			onSubmit={cityHandler}
 			className="bg-gray-800 p-2 flex justify-center"
 		>
-			<div>
-				<input
-					className="bg-gray-600 rounded-full w-72 outline-none pl-5"
-					id="city"
-					type="text"
-					placeholder="Rechercher un emplacement"
-					required
-				/>
-			</div>
+			<input
+				className="bg-gray-600 rounded-full w-72 outline-none pl-5"
+				id="city"
+				type="text"
+				placeholder="Rechercher un emplacement"
+				required
+			/>
 		</form>
 	)
 }

@@ -1,8 +1,7 @@
-import React from "react"
-import { useWeather } from "../components/context/WeatherContext"
+import { useDaily } from "./context/DailyContext"
 
 const Icon = () => {
-	const { description, mainTemp, iconID } = useWeather()
+	const { iconID, description, mainTemp } = useDaily()
 	return (
 		<div className="flex justify-center">
 			<img

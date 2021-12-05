@@ -1,11 +1,11 @@
 import CityForm from "./components/CityForm"
+import { useDaily } from "./components/context/DailyContext"
 import DailyForecast from "./components/DailyForecast/DailyForecast"
 import DaysButton from "./components/DaysButton"
 import WeatherApp from "./components/WeatherApp"
-import { useWeather } from "./components/context/WeatherContext"
 
 function App() {
-	const { previsions } = useWeather()
+	const { previsions } = useDaily()
 	return (
 		<div className="min-h-screen bg-gray-800">
 			<CityForm />
@@ -14,7 +14,7 @@ function App() {
 				Nos prévision ces prochaines heures.
 			</h2>
 			<DailyForecast />
-			{previsions < 40 && <DaysButton />}
+			{previsions < 36 && <DaysButton />}
 		</div>
 	)
 }

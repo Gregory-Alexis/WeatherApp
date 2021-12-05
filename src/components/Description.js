@@ -1,5 +1,4 @@
-import React from "react"
-import { useWeather } from "../components/context/WeatherContext"
+import { useDaily } from "./context/DailyContext"
 
 const Description = () => {
 	const {
@@ -12,7 +11,7 @@ const Description = () => {
 		wind,
 		visibility,
 		time,
-	} = useWeather()
+	} = useDaily()
 
 	return (
 		<div>
@@ -26,7 +25,7 @@ const Description = () => {
 			</div>
 			<p className="text-lg text-white pt-10 sm:text-xl md:text-3xl">
 				{time.getHours() >= "0" && time.getHours() <= "20"
-					? `Aujourd'hui, la température sera de ${Math.ceil(maxTemp)}`
+					? `Aujourd'hui, la température maximal sera de ${Math.ceil(maxTemp)}`
 					: `Ce soir, la température minimal sera de ${Math.floor(minTemp)}`}
 				&deg;C
 			</p>

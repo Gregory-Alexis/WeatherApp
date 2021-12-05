@@ -1,8 +1,8 @@
 import { useEffect } from "react"
-import { useWeather } from "./context/WeatherContext"
+import { useDaily } from './context/DailyContext'
 
 const Time = () => {
-	const { time, setTime, zone } = useWeather()
+	const { time, setTime, zone } = useDaily()
 
 	const newTime = time.getTime() + zone * 1000 - 3600000
 

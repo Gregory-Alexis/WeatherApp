@@ -1,8 +1,8 @@
-import { useWeather } from "../components/context/WeatherContext"
 import House from "../Images/house-door.svg"
+import { useDaily } from "./context/DailyContext"
 
 const Location = () => {
-	const { location } = useWeather()
+	const { location } = useDaily()
 	return (
 		<div className="text-white text-lg ml-auto sm:text-xl md:text-3xl">
 			<div className="flex">

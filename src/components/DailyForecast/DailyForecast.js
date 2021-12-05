@@ -1,28 +1,10 @@
-import React, { useEffect, useState } from "react"
-import axios from "axios"
-import { useWeather } from "../context/WeatherContext"
 import Droplet from "../../Images/droplet.svg"
 import timeConverter from "./timeConverter"
+import { useDaily } from "../context/DailyContext"
 
 const DailyForecast = () => {
-	const [data, setData] = useState({})
-	const { city, time, previsions } = useWeather()
+	const { time, data } = useDaily()
 
-	useEffect(() => {
-		const fetchForecastData = async () => {
-			try {
-				const result = await axios.get(
-					`https://api.openweathermap.org/data/2.5/forecast?q=${city}&lang=fr&cnt=${previsions}&units=metric&appid=${process.env.REACT_APP_WEATHER_API}`
-				)
-				setData(result.data.list)
-			} catch (error) {
-				alert(error.message)
-			}
-		}
-		fetchForecastData()
-	}, [city, previsions])
-
-	console.log(Object.entries(data))
 	return (
 		<div className="p-2 sm:grid sm:grid-cols-2 xl:grid-cols-4">
 			{Object.entries(data).map((el) => (
@@ -50,18 +32,19 @@ const DailyForecast = () => {
 						<div className="flex pt-5 ">
 							<li>
 								<img
-									src={`http://openweathermap.org/img/wn/${el[1].weather[0].icon}.png`}
+									src={`http://openweathermap.org/img/wn/${el[1].weather[0].icon}@2x.png`}
 									alt="weather icon"
 								/>
 							</li>
 
 							<div className="flex flex-col md:text-xl">
-								<li>{Math.ceil(el[1].main.temp_max)}&deg;</li>
-								<li>{Math.floor(el[1].main.temp_min)}&deg;</li>
+								<li className="text-4xl pt-6">
+									{Math.floor(el[1].main.temp)}&deg;
+								</li>
 							</div>
 						</div>
 					</div>
-					<div className="pt-10 md:text-xl">
+					<div className=" md:text-xl pt-16 ">
 						<li className="text-secondary">{el[1].weather[0].description}</li>
 						<li className="text-secondary pt-2 flex justify-end">
 							<img src={Droplet} alt="humidité" className="pr-1" />
