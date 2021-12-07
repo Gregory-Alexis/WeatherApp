@@ -1,10 +1,8 @@
-import React from "react"
+import Icon from "./Icon"
+import Location from "./Location"
+import Time from "./Time"
+import Description from "./Description"
 import { useDaily } from "./context/DailyContext"
-
-const Icon = React.lazy(() => import("./Icon"))
-const Location = React.lazy(() => import("./Location"))
-const Time = React.lazy(() => import("./Time"))
-const Description = React.lazy(() => import("./Description"))
 
 const WeatherApp = () => {
 	const { iconID, loading, error } = useDaily()
@@ -52,7 +50,7 @@ const WeatherApp = () => {
 	}
 
 	return (
-		<React.Suspense fallback={<p>Loading</p>}>
+		<>
 			{loading && <p className="text-white text-5xl text-center">Loading</p>}
 			{error && <p>{error}</p>}
 			<div className={`bg-cover bg-center p-5 ${background}`}>
@@ -68,7 +66,7 @@ const WeatherApp = () => {
 				<Icon />
 				<Description />
 			</div>
-		</React.Suspense>
+		</>
 	)
 }
 
