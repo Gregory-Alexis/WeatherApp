@@ -15,7 +15,7 @@ const CityForm = () => {
 			className="bg-gray-800 p-2 flex justify-center"
 		>
 			<input
-				className="bg-gray-600 rounded-full w-72 outline-none pl-5"
+				className="bg-gray-700 rounded-full w-72 outline-none pl-5 placeholder-white"
 				id="city"
 				type="text"
 				placeholder="Rechercher un emplacement"

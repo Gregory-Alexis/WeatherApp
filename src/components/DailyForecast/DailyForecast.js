@@ -8,10 +8,9 @@ const DailyForecast = () => {
 	return (
 		<div className="p-2 sm:grid sm:grid-cols-2 xl:grid-cols-4">
 			{Object.entries(data).map((el) => (
-				<ul
-					className=" p-4 flex text-white rounded-xl justify-between m-2"
+				<div
+					className=" p-4 flex text-white rounded-xl justify-between m-2 bg-primary"
 					key={el[0]}
-					style={{ background: "rgba(63, 87, 110, 0.5)" }}
 				>
 					<div>
 						<span className="pl-3 text-sm sm:text-base md:text-xl">
@@ -29,29 +28,37 @@ const DailyForecast = () => {
 							{/*console.log(timeConverter(el[1].dt))*/}
 							{/* console.log(time.getDate()) */}
 						</span>
-						<div className="flex pt-5 ">
+						<ul className="flex pt-5 ">
 							<li>
 								<img
-									src={`http://openweathermap.org/img/wn/${el[1].weather[0].icon}@2x.png`}
+									src={`https://openweathermap.org/img/wn/${el[1].weather[0].icon}@2x.png`}
 									alt="weather icon"
+									width="100"
+									height="100"
 								/>
 							</li>
 
-							<div className="flex flex-col md:text-xl">
-								<li className="text-4xl pt-6">
+							<li className="flex flex-col md:text-xl">
+								<span className="text-4xl pt-6">
 									{Math.floor(el[1].main.temp)}&deg;
-								</li>
-							</div>
-						</div>
+								</span>
+							</li>
+						</ul>
 					</div>
-					<div className=" md:text-xl pt-16 ">
+					<ul className=" md:text-xl pt-16 ">
 						<li className="text-secondary">{el[1].weather[0].description}</li>
 						<li className="text-secondary pt-2 flex justify-end">
-							<img src={Droplet} alt="humidité" className="pr-1" />
+							<img
+								src={Droplet}
+								alt="humidité"
+								className="pr-1"
+								width="13"
+								height="13"
+							/>
 							{el[1].main.humidity}%
 						</li>
-					</div>
-				</ul>
+					</ul>
+				</div>
 			))}
 		</div>
 	)

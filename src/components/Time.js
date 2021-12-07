@@ -1,5 +1,5 @@
 import { useEffect } from "react"
-import { useDaily } from './context/DailyContext'
+import { useDaily } from "./context/DailyContext"
 
 const Time = () => {
 	const { time, setTime, zone } = useDaily()
