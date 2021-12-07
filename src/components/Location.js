@@ -6,7 +6,13 @@ const Location = () => {
 	return (
 		<div className="text-white text-lg ml-auto sm:text-xl md:text-3xl">
 			<div className="flex">
-				<img src={House} alt="logo maison" className="mr-2" />
+				<img
+					src={House}
+					alt="logo maison"
+					className="mr-2"
+					width="24"
+					height="24"
+				/>
 				<h1>{location}</h1>
 			</div>
 		</div>

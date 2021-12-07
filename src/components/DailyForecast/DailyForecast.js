@@ -46,8 +46,8 @@ const DailyForecast = () => {
 						</ul>
 					</div>
 					<ul className=" md:text-xl pt-16 ">
-						<li className="text-secondary">{el[1].weather[0].description}</li>
-						<li className="text-secondary pt-2 flex justify-end">
+						<li>{el[1].weather[0].description}</li>
+						<li className="pt-2 flex justify-end">
 							<img
 								src={Droplet}
 								alt="humidité"
